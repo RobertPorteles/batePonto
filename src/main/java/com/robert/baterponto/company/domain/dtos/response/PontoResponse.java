@@ -10,7 +10,11 @@ public class PontoResponse {
 
     private UUID id;
 
-    private LocalDateTime inicio;
+    private int hora;
 
-    private LocalDateTime fim;
+    private int minuto;
+
+    private int segundo;
+
+    private Boolean fim;
 }

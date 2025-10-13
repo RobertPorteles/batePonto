@@ -1,33 +1,50 @@
 package com.robert.baterponto.company.domain.mappers;
 
 import com.robert.baterponto.company.domain.Ponto;
-import com.robert.baterponto.company.domain.dtos.request.PontoRequest;
+
+import com.robert.baterponto.company.domain.dtos.request.PontoFinalRequest;
+import com.robert.baterponto.company.domain.dtos.request.PontoInicialRequest;
 import com.robert.baterponto.company.domain.dtos.response.PontoResponse;
+import lombok.Data;
 
+import java.time.LocalDateTime;
 
+@Data
 public class PontoMapper {
 
 
+     Ponto toEntityInicio () {
 
-    Ponto toEntity(PontoRequest request){
-        Ponto ponto = new Ponto();
-        ponto.setId(ponto.getId());
-        ponto.setInicio(request.getInicio());
-        ponto.setFim(request.getFim());
+         Ponto pontoEntity = new Ponto();
+         PontoInicialRequest pontoInicio = new PontoInicialRequest();
 
-    return ponto;
-    }
+         pontoInicio.setHora(LocalDateTime.now().getHour());
+         pontoInicio.setMinuto(LocalDateTime.now().getMinute());
+         pontoInicio.setSegundo(LocalDateTime.now().getSecond());
+
+         pontoInicio.setFim(false);
+         pontoEntity.getId();
+         pontoEntity.setHora(pontoEntity.getHora());
+         pontoEntity.setMinuto(pontoEntity.getMinuto());
+         pontoEntity.setSegundo(pontoEntity.getSegundo());
+         pontoEntity.setFim(false);
+
+         return pontoEntity;
+
+}
+
+
     PontoResponse toResponse(Ponto entity){
         PontoResponse response = new PontoResponse();
 
-        response.setId(response.getId());
-        response.setInicio(response.getInicio());
-        response.setFim(response.getFim());
+        response.setId(entity.getId());
+        response.setHora(entity.getHora());
+        response.setMinuto(entity.getMinuto());
+        response.setSegundo(entity.getSegundo());
+        response.setFim(entity.getFim());
 
         return response;
     }
-
-
 
 
 }

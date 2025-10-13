@@ -1,11 +1,12 @@
 package com.robert.baterponto.company.domain.interfaces;
 
+import java.time.LocalDateTime;
+
 public interface PontoInterface {
-    void create();
 
-    void update();
+    int pontoInicio();
 
-    void delete();
+    int pontoFim();
 
-    void get();
+
 }
