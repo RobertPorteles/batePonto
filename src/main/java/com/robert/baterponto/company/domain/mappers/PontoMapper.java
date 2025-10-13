@@ -6,12 +6,12 @@ import com.robert.baterponto.company.domain.dtos.request.PontoFinalRequest;
 import com.robert.baterponto.company.domain.dtos.request.PontoInicialRequest;
 import com.robert.baterponto.company.domain.dtos.response.PontoResponse;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
 
 @Data
 public class PontoMapper {
-
 
      Ponto toEntityInicio () {
 
