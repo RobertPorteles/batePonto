@@ -9,6 +9,7 @@ import java.util.UUID;
 @Entity
 @Data
 public class Ponto {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
@@ -21,6 +22,13 @@ public class Ponto {
 
     @Column(name = "segundo")
     private int segundo;
+
+    @Column(name = "dia")
+    private int dia;
+    @Column(name = "mes")
+    private int mes;
+    @Column(name ="ano")
+    private int ano;
 
     @Column(name = "fim")
     private Boolean fim;

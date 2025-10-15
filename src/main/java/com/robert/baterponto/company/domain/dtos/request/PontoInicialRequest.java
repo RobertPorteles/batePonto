@@ -14,5 +14,11 @@ public class PontoInicialRequest {
 
     private int segundo;
 
+    private int dia;
+
+    private int mes;
+
+    private int ano;
+
     private Boolean fim;
 }
