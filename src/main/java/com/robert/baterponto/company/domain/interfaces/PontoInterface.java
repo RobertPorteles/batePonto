@@ -9,7 +9,5 @@ public interface PontoInterface {
 
     PontoResponse registrarPontoInicio();
 
-    int pontoFim();
-
 
 }

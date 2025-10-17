@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
 
-public interface PontoJpaRespository extends JpaRepository<UUID, Ponto> {
+public interface PontoJpaRespository extends JpaRepository<Ponto, UUID> {
 
 
 }

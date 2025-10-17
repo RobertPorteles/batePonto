@@ -13,7 +13,7 @@ public class PontoMapper {
      public Ponto toEntityInicio(LocalDateTime ntpDate) {
 
          Ponto pontoEntity = new Ponto();
-
+         pontoEntity.getId();
          // Mapeia os componentes de data/hora do servidor
          pontoEntity.setHora(ntpDate.getHour());
          pontoEntity.setMinuto(ntpDate.getMinute());
@@ -29,12 +29,10 @@ public class PontoMapper {
 
 }
 
-
     public PontoResponse toResponse(Ponto entity){
         PontoResponse response = new PontoResponse();
 
         response.setId(entity.getId());
-
 
         response.setHora(entity.getHora());
         response.setMinuto(entity.getMinuto());

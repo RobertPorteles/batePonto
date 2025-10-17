@@ -5,6 +5,7 @@ import com.robert.baterponto.company.domain.dtos.request.PontoInicialRequest;
 import com.robert.baterponto.company.domain.dtos.response.PontoResponse;
 import com.robert.baterponto.company.domain.interfaces.PontoInterface;
 import com.robert.baterponto.company.domain.mappers.PontoMapper;
+import com.robert.baterponto.company.infrastructure.repositories.PontoJpaRespository;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,10 +22,8 @@ public class PontoServiceImpl implements PontoInterface {
 
     @Autowired
     private PontoMapper pontoMapper;
-
-
-    // @Autowired
-    // private PontoRepository pontoRepository;
+    @Autowired
+    private PontoJpaRespository pontoRepository;
 
     @Override
     public PontoResponse registrarPontoInicio() {
@@ -33,7 +32,6 @@ public class PontoServiceImpl implements PontoInterface {
 
         try {
 
-            // então chamamos diretamente pela classe (ou importação estática).
             // Usando a importação estática que eu adicionei acima:
             ntpDate = getDateTimeFromNTP();
         } catch (IOException e) {
@@ -41,23 +39,14 @@ public class PontoServiceImpl implements PontoInterface {
             throw new RuntimeException("Não foi possível registrar o ponto. Falha ao obter horário oficial.", e);
         }
 
-
         // passando os parâmetros essenciais.
         Ponto newPonto = pontoMapper.toEntityInicio(ntpDate);
 
         // 4. Lógica de Persistência: (Descomente quando tiver o Repository)
-        // Ponto savedPonto = pontoRepository.save(newPonto);
-
-        // Para o exemplo, vamos usar newPonto
-        Ponto savedPonto = newPonto;
+         Ponto savedPonto = pontoRepository.save(newPonto);
 
         // 5. Retorna a resposta, mapeando a entidade salva.
         return pontoMapper.toResponse(savedPonto);
     }
 
-    @Override
-    public int pontoFim() {
-        // Implementação do pontoFim
-        return 0;
-    }
 }
